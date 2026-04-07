@@ -17,7 +17,7 @@ GPIO.setup(down, GPIO.IN)
 num = 0
 
 def dec2bin(value):
-    return [int(element) for element in bin(value)[2:].zfill(8)]
+    return [int(element) for element in reversed(bin(value)[2:].zfill(8))]
 
 sleep_time = 0.2
 
