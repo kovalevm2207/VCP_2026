@@ -23,8 +23,9 @@ def number_to_dac(n):
         print("Out of range [0, 255]")
         return
     bits = dec2bin(n)
-    print(n, bits)
+    # print(n, bits)
     GPIO.output(pins, bits)
+    return bits
 
 try:
     while True:
@@ -32,7 +33,7 @@ try:
             voltage = float(input("Введите напряжение в Вольтах: "))
             number = voltage_to_number(voltage)
             dac_bits = number_to_dac(number)
-            print(number, dac_bits)
+            print("Число на вход ЦАП: ", number, ", биты: ", dac_bits, "\n")
         except ValueError:
             print("Вы ввели не число. Попробуйте ещё раз\n")
 finally:
