@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 pins = [16, 20, 21, 25, 26, 17, 27, 22]
 GPIO.setup(pins, GPIO.OUT)
-dynamic_range = 3.3
+dynamic_range = 3.183
 
 def voltage_to_number(voltage):
     if not (0.0 <= voltage <= dynamic_range):
@@ -23,7 +23,6 @@ def number_to_dac(n):
         print("Out of range [0, 255]")
         return
     bits = dec2bin(n)
-    # print(n, bits)
     GPIO.output(pins, bits)
     return bits
 
