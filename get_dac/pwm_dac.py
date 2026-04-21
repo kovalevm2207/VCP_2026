@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import RPi.GPIO as GPIO
 
 class PWM_DAC:
@@ -22,7 +20,7 @@ class PWM_DAC:
 
 if __name__ == "__main__":
     try:
-        dac = PWM_DAC(12, 500, 3.290, True)
+        dac = PWM_DAC(12, 2000, 3.297, True)
         while True:
             try:
                 voltage = float(input("Введите напряжение в Вольтах: "))
