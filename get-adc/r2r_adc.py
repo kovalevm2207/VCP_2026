@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import RPi.GPIO as GPIO
 import time
 
@@ -31,7 +30,6 @@ class R2R_ADC:
             self.number_to_dac(value)
             time.sleep(self.compare_time)
             comp_value = GPIO.input(self.comp_gpio)
-            print(comp_value)
             if comp_value == 1:
                 return value
         return 255
@@ -55,9 +53,9 @@ class R2R_ADC:
 
 if __name__ == "__main__":
     try:
-        adc = R2R_ADC(3.294, 0.01, True)
+        adc = R2R_ADC(3.295, 0.01, True)
 
         while True:
-            print(f"Напряжение: {adc.get_sc_voltage():.02f}")
+            print(f"\rНапряжение: {adc.get_sc_voltage():.03f}", end="", flush=True)
     finally:
         adc.deinit()
